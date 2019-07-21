@@ -8,8 +8,10 @@ resource "azurerm_route_table" "user_route" {
 
   tags                          = var.tags
   route {
-    name           = "DefaultInet"
-    address_prefix = var.route_prefix
-    next_hop_type  = var.route_nexthop
+    name                        = var.route_name #need to implement route name
+    address_prefix              = var.route_prefix
+    next_hop_type               = var.route_nexthop_type
+    //theoritcally should be: next_hop_in_ip_address      = var.route_nexthop_type == "VirtualAppliance" ? "${var.route_nexthop_ip}" : ""
+    next_hop_in_ip_address      = var.route_nexthop_ip
   }
 }

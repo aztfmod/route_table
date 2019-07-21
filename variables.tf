@@ -26,7 +26,11 @@ variable "route_prefix" {
  
 }
 
-variable "route_nexthop" {
-   description = "(Required) route nexthop for the route table object" 
+variable "route_nexthop_type" {
+   description = "(Required) route nexthop type for the route table object, can be VirtualNetworkGateway, VnetLocal, Internet, VirtualAppliance and None." 
 }
 
+variable "route_nexthop_ip" {
+   description = "(Optional) route nexthop IP for the route table object -  Next hop values are only allowed in routes where the next hop type is VirtualAppliance" 
+   default = ""
+}

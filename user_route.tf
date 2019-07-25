@@ -11,7 +11,7 @@ resource "azurerm_route_table" "user_route" {
     name                        = var.route_name #need to implement route name
     address_prefix              = var.route_prefix
     next_hop_type               = var.route_nexthop_type
-    //theoritcally should be: next_hop_in_ip_address      = var.route_nexthop_type == "VirtualAppliance" ? "${var.route_nexthop_ip}" : ""
+    //theoritcally should be: next_hop_in_ip_address      = var.route_nexthop_type == "VirtualAppliance" ? "${var.route_nexthop_ip}" : null
     next_hop_in_ip_address      = var.route_nexthop_ip
   }
 }

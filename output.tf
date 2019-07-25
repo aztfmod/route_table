@@ -3,6 +3,6 @@ output "user_route" {
   value = azurerm_route_table.user_route
 }
 
-output "subnet_route" {
-  value = azurerm_subnet_route_table_association.route_subnet_association
-}
+# output "subnet_route" {
+#   value = azurerm_subnet_route_table_association.route_subnet_association
+# }

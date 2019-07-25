@@ -16,10 +16,10 @@ variable "route_resource_group" {
   
 }
 
-variable "subnet_id" {
-  description = "(Required) subnet where the route table object will be created"
+# variable "subnet_id" {
+#   description = "(Required) subnet where the route table object will be created"
 
-}
+# }
 
 variable "route_prefix" {
    description = "(Required) route prefix for the route table object"

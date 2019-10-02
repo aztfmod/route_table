@@ -4,7 +4,7 @@ resource "azurerm_route_table" "route_table" {
   name                          = var.route_table.name
   location                      = var.route_table.location
   resource_group_name           = var.route_table.rg
-  tags                          = var.tags
+  tags                          = local.tags
   disable_bgp_route_propagation = var.route_table.disable_bgp_route_propagation
   
   dynamic "route" {

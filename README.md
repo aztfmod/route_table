@@ -81,6 +81,10 @@ route_table = {
 }
 ```
 
+## next_hop_in_dynamic_private_ip
+(Optional) String in CIDR format of next hop ip address in route. If parameter 'next_hop_in_dynamic_private_ip' is not passed in to the module, then property 'next_hop_in_ip_address' is mandatory for next_hop_type = "VitualAppliance" in tfvars file as defined above.
+If the parameter 'next_hop_in_dynamic_private_ip' is passed in to the module, it has priority over 'next_hop_in_ip_address' in tfvars file and always overrides it.
+
 
 ## tags
 (Required) Map of tags for the deployment

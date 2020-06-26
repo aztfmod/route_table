@@ -13,7 +13,7 @@ resource "azurerm_route_table" "route_table" {
               name                        = route.value.name 
               address_prefix              = route.value.prefix
               next_hop_type               = route.value.next_hop_type
-              next_hop_in_ip_address      = "${contains(keys(route.value), "next_hop_in_ip_address") ? route.value.next_hop_in_ip_address : null}"
+              next_hop_in_ip_address      = route_value.next_hop_type == "VirtualAppliance" ? (var.next_hop_in_dynamic_private_ip != null && var.next_hop_in_dynamic_private_ip != "null" && var.next_hop_in_dynamic_private_ip != "" ? var.next_hop_in_dynamic_private_ip : route_value.next_hop_in_ip_address) : null
             }
     } 
 }

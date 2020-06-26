@@ -7,7 +7,7 @@ variable "route_table" {
  
 }
 
-variable next_hop_in_ip_address {
-   description = "(Optional) dynamically passing gateway ip which is output of another terraform resource, e.g. azure firewall private ip"
+variable next_hop_in_dynamic_private_ip {
+   description = "(Optional) dynamically passing private ip address which is an output of another tf resource or module, e.g. azure firewall"
    default = null
 }

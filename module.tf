@@ -1,9 +1,7 @@
 #Reference https://www.terraform.io/docs/providers/azurerm/r/route_table.html
 
 resource "azurerm_route_table" "route_table" {
-  for_each = var.route_table
-
-  name                          = each.value["name"]
+  name                          = var.route_table.name
   location                      = var.location
   resource_group_name           = var.resource_group_name
   tags                          = local.tags
@@ -12,7 +10,7 @@ resource "azurerm_route_table" "route_table" {
   dynamic "route" {
     for_each = flatten(
       [
-          for route_key,route_value in each.value["route_entries"]:
+          for route_key,route_value in var.route_table.route_entries:
           [
             for address_key, address_value in flatten(list(route_value.address_prefix)):
             {

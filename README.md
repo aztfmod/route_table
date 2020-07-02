@@ -32,7 +32,7 @@ module "route_table" {
 | max\_length | (Optional) You can speficy a maximum length to the name of the resource | `string` | `"60"` | no |
 | next\_hop\_in\_dynamic\_private\_ip | (Optional) dynamically passing private ip address which is an output of another tf resource or module, e.g. azure firewall | `any` | `null` | no |
 | postfix | (Optional) You can use a postfix to the name of the resource | `string` | `""` | no |
-| prefix | (Required) network address prefix | `string` or `array` | `""` | yes |
+| prefix | (Optional) You can use a prefix to the name of the resource | `string` | `""` | no |
 | route\_table | (Required) route table object to be created | `any` | n/a | yes |
 | tags | (Required) map of tags for the deployment | `any` | n/a | yes |
 

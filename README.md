@@ -42,16 +42,25 @@ module "route_table" {
 ## route_table
 (Required) The routing table object describing the route table configuration
 Mandatory properties are:
-- name
-- at least one route_entries item as follow:
+- name (type=string)
+- route_entries (type=object)
+  - name (type=string)
+  - prefix (type=string or type=array)
+  - next_hop_type (type=string)
+  - next_hop_in_ip_address (type=string)
 ```hcl
   re1= {
             name                        = "myroute1"
             prefix                      = "255.0.0.0/8"
             next_hop_type               = "None"
-            next_hop_in_ip_address      = "192.168.10.5" #required if next_hop_type is "VirtualAppliance"
+        },
+  re2= {
+          name                        = "myroute1"
+          prefix                      = ["10.10.1.0/24","10.10.2.0/24"]
+          next_hop_type               = "VirtualAppliance"
+          next_hop_in_ip_address      = "192.168.10.5" #required if next_hop_type is "VirtualAppliance"
 
-          },
+        },
 ```
 Optional fields:
 - disable_bgp_route_propagation
